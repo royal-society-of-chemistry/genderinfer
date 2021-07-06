@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(GenderDiversity)
+library(GenderInfer)
 
 ```
 

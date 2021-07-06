@@ -1,4 +1,4 @@
-Package: GenderDiversity
+Package: GenderInfer
 Type: Package
 Title: This is a collection of functions to analysis gender bias 
 Version: 0.1.0
