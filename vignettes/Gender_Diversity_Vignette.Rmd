@@ -1,10 +1,10 @@
 ---
-title: "Gender Diversity"
+title: "Gender diversity analysis"
 author: ""
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Gender Diversity}
+  %\VignetteIndexEntry{Gender diversity analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,9 +22,9 @@ library(GenderDiversity)
 
 ```
 
-## GenderDiversity package
+## GenderInfer package
 
-GenderDiversity is a package developed to find possible gender bias in the data.
+`GenderInfer` is a package developed to find possible gender bias in the data.
 This package is based on the work of Dr. [A. Day et al. Chem. Sci., 2020,11, 2277-2301](https://pubs.rsc.org/en/content/articlelanding/2020/sc/c9sc04090k#!divAbstract).
 The idea is to create a tool that is helpful to analyse
 data for gender diversity in the editorial field. 
