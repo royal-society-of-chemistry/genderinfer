@@ -4,15 +4,16 @@
 
 <!-- badges: end -->
 
-The goal of `GenderDiversity` is to analysed data for gender diversity in the editorial field.
-It assigns the gender and let possible to find if there are significant differences.
+The goal of `GenderInfer` is to analysed data for gender differences in publishing.
+It assigns the gender based on the first name and let possible to find if 
+there are significant differences between male and female from a specified baselines.
 
 ## Installation
 
-You can install the released version of GenderDiversity from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of GenderInfer from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("GenderDiversity")
+install.packages("GenderInfer")
 ```
 
 The package use the following packages as dependencies:
@@ -25,7 +26,6 @@ The package use the following packages as dependencies:
   readr
   rlang
   stats
-  stringr
   tibble
   tidyr
 ```
