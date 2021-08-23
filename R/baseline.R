@@ -11,23 +11,15 @@
 #' df <- data.frame(first_name = c("anna", "john", "ernest", "colin", "aileen"), 
 #'                  gender = c("F", "M",  "M", "M", "F"), 
 #'                  stringsAsFactors = FALSE)
-#' baseline <- baseline(df, gendercol = gender)
-#' @importFrom dplyr ungroup
-#' @importFrom dplyr count
-#' @importFrom rlang .data
+#' baseline <- baseline(df, gendercol = "gender")
 #' @export
 
-baseline <- function(data_df, gendercol = .data$GENDER) {
-  gender_count <- data_df %>% 
-    ungroup() %>%
-    count({{gendercol}})
-  female <- as.numeric(gender_count %>% 
-                         filter({{gendercol}} == "F") %>%
-                         select(.data$n))
-  male <- as.numeric(gender_count %>% 
-                       filter({{gendercol}} == "M") %>%
-                       select(.data$n))
-  baseline <- round(100 * ((female) / (female + male)), 1)
+baseline <- function(data_df, gendercol) {
+  
+  gender_count <- table(data_df[,gendercol])
+  female <- gender_count["F"][[1]]
+  male <- gender_count["M"][[1]]
+  baseline <- round(100 * (female / (female + male)), 1)
   baseline
 }
 
