@@ -22,5 +22,6 @@ This function use the data source based on combined US/UK
 censor data to assign gender based on first name.
 }
 \examples{
-gender <- assign_gender(authors, first_name)
+gender <- assign_gender(authors, "first_name")
+
 }
