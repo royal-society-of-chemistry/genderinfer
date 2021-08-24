@@ -17,7 +17,6 @@ Imports:
     ggplot2,
     readr,
     binom,
-    stats,
     rlang,
     ggpubr,
     tibble
