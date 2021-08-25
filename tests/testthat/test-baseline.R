@@ -9,7 +9,7 @@ test_that("baseline is correct", {
                    stringsAsFactors = FALSE)
 
   
-  baselin <- baseline(df, gendercol = gender)
+  baselin <- baseline(df, gendercol = "gender")
   expect_is(baselin, "numeric")
   #expect_match(is.na(baselin), FALSE)
   

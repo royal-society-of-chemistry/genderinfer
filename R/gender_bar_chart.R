@@ -18,16 +18,16 @@
 gender_bar_chart <- function(data_df, x_title, y_title, label_name) {
   
   plot <- ggplot() +
-    geom_bar(aes(x = .data$x_values, y = .data$y_values, fill = .data$gender),
+    geom_bar(aes(x = x_values, y = y_values, fill = gender),
              data = {{data_df}},
              stat = "identity", position = "dodge") +
     scale_fill_manual(values = c(alpha("#DCDCDC", .7), alpha("#2A7886", 0.7),
                                alpha("#512B58", .7))) +
     scale_x_discrete(limits = rev(levels(droplevels(data_df$x_values)))) +
-    geom_text(data = data_df, aes(x = .data$x_values, 
-                                  y = .data$total_female_male,
+    geom_text(data = data_df, aes(x = x_values, 
+                                  y = total_female_male,
                                   label = paste({{label_name}},
-                                                .data$total_female_male, 
+                                                data_df$total_female_male, 
                                                 sep = " "),
                                   size = 13/.pt), show.legend = FALSE) +
   xlab({{x_title}}) + ylab({{y_title}}) + theme_gd()

@@ -20,7 +20,6 @@
 #' bullet_line_chart(percent_df, baseline, "Submissions (%)", "Months",
 #'  "Women baseline", total_number_df, var_name, c, ysectitle, line_label)
 #' }
-#' @importFrom dplyr bind_rows
 #' @importFrom ggplot2 geom_point
 #' @importFrom ggplot2 geom_line
 #' @importFrom ggplot2 scale_y_continuous
@@ -34,14 +33,13 @@ bullet_line_chart <- function(data_df, baseline_female,
                               total_number_df, var_name, c, ysectitle,
                               line_label) {
 
-  data_df <- {{data_df}} %>% 
-    mutate(gender = factor(gsub("_percentage", "", .data$gender),
-                           levels = c("male", "female")),
-           pos = if_else(.data$gender == "male", 90, .data$y_values),
-           label = paste0(.data$y_values, ""),
-           label = if_else(.data$gender == "male", .data$significance,
-                            .data$label),
-           label = if_else(.data$label == "Significant", "*", .data$label))
+  data_df$gender = factor(gsub("_percentage", "", data_df$gender),
+                           levels = c("male", "female"))
+  data_df$pos = ifelse(data_df$gender == "male", 90, data_df$y_values)
+  data_df$label = paste0(data_df$y_values, "")
+  data_df$label = ifelse(data_df$gender == "male", data_df$significance,
+                            data_df$label)
+  data_df$label = ifelse(data_df$label == "Significant", "*", data_df$label)
   baseline_df <- data.frame(Level = unique(data_df$x_values),
                             baseline = baseline_female)
   plot <- ggplot() +

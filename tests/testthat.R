@@ -1,4 +1,4 @@
 library(testthat)
-library(GenderDiversity)
+library(GenderInfer)
 
-test_check("GenderDiversity")
+test_check("GenderInfer")

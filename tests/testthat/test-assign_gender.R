@@ -2,12 +2,12 @@ context("Assign gender to vector")
 
 test_that("gender is correct", {
   
-  name <- c("anna", "john", "david", "ernest", "colin", "aileen")
+  name <- c( "aileen", "anna", "colin", "david", "ernest", "john")
   df <- data.frame(FirstName = name, stringsAsFactors = FALSE)
-  gender <- c("F", "M", "M", "M", "M", "F")
+  gender <- c("F", "F", "M", "M", "M", "M")
 
 
-  assigngender <- assign_gender(data_df = df, first_name_col = df$FirstName)
+  assigngender <- assign_gender(data_df = df, first_name_col = "FirstName")
   expect_is(assigngender, "data.frame")
   expect_is(assigngender$gender, "character")
   expect_equal(assigngender$gender, gender)

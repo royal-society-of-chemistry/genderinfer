@@ -40,7 +40,7 @@ bullet_chart <- function(data_df, baseline_female, x_title, y_title,
   ## create the dataframe for generating the bullet chart.
   data_df$gender = factor(gsub("_percentage", "", data_df$gender),
                                  levels = c("male", "female"))
-  data_df$pos = if_else(data_df$gender == "male", 90, .data$y_values)
+  data_df$pos = if_else(data_df$gender == "male", 90, data_df$y_values)
   data_df$labels = paste(data_df$y_values, "%")
   data_df$labels = if_else(data_df$gender == "male", data_df$significance,
                             data_df$labels)
@@ -48,7 +48,7 @@ bullet_chart <- function(data_df, baseline_female, x_title, y_title,
                             baseline = baseline_female)
   ## Create the bullet chart
   plot <- ggplot() +
-    geom_bar(aes(x = baseline_df$level, y = baseline_df$baseline, fill = "#D7191C"), 
+    geom_bar(aes(x = level, y = baseline, fill = "#D7191C"), 
              data = {{baseline_df}}, width = 0.85, stat = "identity",
              show.legend = FALSE) +
     geom_bar(aes(x = .data$x_values, y = .data$y_values, fill = .data$gender),
