@@ -9,19 +9,19 @@
 #' \dontrun{
 #' percent_df <-percent_df(data_dfF)
 #' }
-#' @importFrom tidyr pivot_longer
-#' @importFrom dplyr arrange
-#' @importFrom dplyr desc
 #' @export
 
 percent_df <- function(data_df) {
-  percentdf <- {{data_df}} %>% 
-    pivot_longer(cols = c(.data$female_percentage, .data$male_percentage),
-                 names_to = "gender", values_to = "y_values") %>%
-    arrange(desc(.data$gender)) %>% 
-    rename(x_values = .data$level) %>%
-    mutate(labels = "") %>% 
-    select(.data$x_values, .data$y_values, .data$lower_CI, .data$upper_CI,
-           .data$significance, .data$labels, .data$gender)
-  percentdf
+  
+  x_values <- y_values <- gender <- lower_CI <- upper_CI <- NULL
+  significance <- labels <- gender <- NULL
+  long <- reshape(data_df, direction = "long", v.names = "y_values", 
+                  timevar = "gender", idvar = "level", varying = 7:8,
+                  times = names(data_df)[7:8])
+  names(long)[names(long) == "level"] <- "x_values"
+  long$label <= ""
+  long <- subset(long, select = c(x_values, y_values, lower_CI, upper_CI,
+                                      significance, labels, gender))
+  long <- long[order(rev(long$gender)), ]
+  long
 }

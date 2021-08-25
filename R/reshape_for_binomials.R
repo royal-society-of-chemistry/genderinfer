@@ -10,7 +10,6 @@
 
 
 reshape_for_binomials <- function(data_df, gendercol, level){
-  
   F <- M <- U <- NULL
   data_df$gender <- factor(data_df[, gendercol])
   if (ncol(data_df) == 2)
@@ -40,17 +39,5 @@ reshape_for_binomials <- function(data_df, gendercol, level){
                                1)
   wide <- subset(wide, select = -c(F, M, U))
   
-  return(wide)  
-  # pivot_wider({{data_df}}, names_from = {{gendercol}}, values_from = .data$n) %>%
-  #   mutate(female = as.numeric(.data$F),
-  #          male = as.numeric(.data$M),
-  #          unknown = as.numeric(.data$U),
-  #          level = factor({{level}}, levels = {{level}}),
-  #          total_for_level = .data$female + .data$male + .data$unknown,
-  #          total_female_male = .data$female + .data$male,
-  #          female_percentage = round((.data$female / .data$total_female_male) * 100,
-  #                                   1),
-  #          male_percentage = round((.data$male / .data$total_female_male) * 100, 
-  #                                 1)) %>%
-  #   select(-.data$F, -.data$M, -.data$U)
+  return(wide)
 }

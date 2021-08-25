@@ -13,7 +13,6 @@
 #' stacked_bar_chart(percent_df, baseline,
 #' "Submissions (%)", "Months", "Women baseline")
 #' }
-#' @importFrom dplyr bind_rows
 #' @importFrom ggplot2 geom_point
 #' @importFrom ggplot2 geom_line
 #' @importFrom ggplot2 scale_y_continuous

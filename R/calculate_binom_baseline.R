@@ -31,32 +31,40 @@
 #'##df dataframe in output from the function reshape_for_binomial
 #'calculate_binom_baseline(df, baseline)
 #'}
-#'@importFrom dplyr mutate_if
 #'@export
 
 calculate_binom_baseline <- function(data_df, baseline_female,
                                      confidence_level = 0.95) {
-
-  outdf <- {{data_df}} %>% 
-    mutate(lower_CI = 0, upper_CI = 0, lower_CI_count = 0, upper_CI_count = 0,
-           baseline = baseline_female)
-
+  
+  #print("Create empty columns")
+  outdf <- data_df 
+  outdf$lower_CI = 0
+  outdf$upper_CI = 0
+  outdf$lower_CI_count = 0
+  outdf$upper_CI_count = 0
+  outdf$adjusted_p_value = 0
+  outdf$significance = ""
+  outdf$baseline = baseline_female
+  outdf
+  #print("create binomial vector")
   rr_row <- sapply(seq_len(length(outdf$female)), function(x) {
     .calculate_binom_proportions(noFirst = as.numeric(outdf$female[x]),
-                                noSecond = as.numeric(outdf$male[x]),
-                                expectedProportion = as.numeric(outdf$baseline[x]) / 100)
+                                 noSecond = as.numeric(outdf$male[x]),
+                                 expectedProportion = as.numeric(outdf$baseline[x]) / 100)
   })
-  outbin <- lapply(seq_len(length(outdf$female)), function(x) { 
-    outdf[x, ] %>%
-      mutate(lower_CI = round(100 * as.numeric(rr_row["LowerCI", x]), 2),
-             lower_CI_count = round(outdf$female[x] * rr_row["LowerCI", x] / rr_row["ActualProportion", x], 2),
-             upper_CI = round(100 * as.numeric(rr_row["UpperCI", x]), 2),
-             upper_CI_count = round(outdf$female[x] * rr_row["UpperCI", x] / rr_row["ActualProportion", x], 2),
-             adjusted_p_value = rr_row["AdjustedPValue", x]) %>%
-      mutate(significance = if_else(rr_row["AdjustedPValue", x] < (1 - 0.95),
-                                    "Significant", ""))
-  })
-  outbin_df <- bind_rows(outbin) %>%
-    mutate(significance = as.character(.data$significance)) %>%
-    mutate_if(is.list, as.numeric)
+  rr_row
+  #outbin <- lapply(seq_len(length(outdf$female)), function(x) {
+  for (x in seq_len(length(outdf$female))) {
+    outdf[x, "lower_CI"] <- round(100 * as.numeric(rr_row["LowerCI", x]), 2)
+    outdf[x, "lower_CI_count"] <- round(outdf$female[x] * rr_row["LowerCI", x] / rr_row["ActualProportion", x], 2)
+    outdf[x, "upper_CI"] <- round(100 * as.numeric(rr_row["UpperCI", x]), 2)
+    outdf[x, "upper_CI_count"] <- round(outdf$female[x] * rr_row["UpperCI", x] / rr_row["ActualProportion", x], 2)
+    outdf[x, "adjusted_p_value"] <- rr_row["AdjustedPValue", x][[1]]
+    outdf[x, "significance"] <- ifelse(rr_row["AdjustedPValue", x][[1]] < (1 - 0.95),
+                                       "Significant", "")
+    outdf
+  }
+  #outbin_df <- do.call(rbind.data.frame, t(outbin))
+  #outbin_df$significance <- as.character(outbin_df$significance)
+    #mutate_if(is.list, as.numeric)
 }
