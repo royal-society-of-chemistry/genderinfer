@@ -33,6 +33,8 @@ bullet_line_chart <- function(data_df, baseline_female,
                               total_number_df, var_name, c, ysectitle,
                               line_label) {
 
+  Level <- n <- label <- x_values <- y_values <- gender <- pos <- NULL
+  lower_CI <- upper_CI <- NULL 
   data_df$gender = factor(gsub("_percentage", "", data_df$gender),
                            levels = c("male", "female"))
   data_df$pos = ifelse(data_df$gender == "male", 90, data_df$y_values)
@@ -43,12 +45,12 @@ bullet_line_chart <- function(data_df, baseline_female,
   baseline_df <- data.frame(Level = unique(data_df$x_values),
                             baseline = baseline_female)
   plot <- ggplot() +
-    geom_bar(aes(x = .data$Level, y = baseline, fill = "#D7191C"), 
+    geom_bar(aes(x = Level, y = baseline, fill = "#D7191C"), 
              data = {{baseline_df}}, width = 0.85, stat = "identity",
              show.legend = FALSE) +
-    geom_bar(aes(x = .data$x_values, y = .data$y_values, fill = .data$gender), 
+    geom_bar(aes(x = x_values, y = y_values, fill = gender), 
              data = {{data_df}}, stat = "identity", width = 0.4) +
-    geom_line(aes(x = {{var_name}}, y = .data$n / {{c}}, group = 1, 
+    geom_line(aes(x = {{var_name}}, y = n / {{c}}, group = 1, 
                   color = line_label), data = {{total_number_df}}) +
     scale_y_continuous(name = {{y_title}}, 
                        sec.axis = sec_axis(~ .*{{c}},
@@ -60,12 +62,12 @@ bullet_line_chart <- function(data_df, baseline_female,
                       name = "") +
     scale_color_manual(name = NULL, values = "black", label = {{line_label}}) +
     guides(fill = guide_legend(override.aes = list(alpha = 0.5))) +
-    geom_text(data = {{data_df}}, aes(x = .data$x_values, y = .data$pos, 
-                                     label = .data$label), 
+    geom_text(data = {{data_df}}, aes(x = x_values, y = pos, 
+                                     label = label), 
               size = 12 / .pt, vjust = -0.5) +
-    geom_errorbar(data = {{data_df}}, aes(x = .data$x_values, 
-                                          ymin = .data$lower_CI, 
-                                          ymax = .data$upper_CI), width = 0.3) + 
+    geom_errorbar(data = {{data_df}}, aes(x = x_values, 
+                                          ymin = lower_CI, 
+                                          ymax = upper_CI), width = 0.3) + 
     theme_gd() + xlab({{x_title}}) + ylab({{y_title}}) 
   plot 
 }

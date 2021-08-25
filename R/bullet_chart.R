@@ -37,12 +37,14 @@
 
 bullet_chart <- function(data_df, baseline_female, x_title, y_title, 
                                     baseline_label) {
+  ## define global variable
+  x_values <- y_values <- gender <- pos <- lower_CI <- upper_CI <- level <- NULL
   ## create the dataframe for generating the bullet chart.
   data_df$gender = factor(gsub("_percentage", "", data_df$gender),
                                  levels = c("male", "female"))
-  data_df$pos = if_else(data_df$gender == "male", 90, data_df$y_values)
+  data_df$pos = ifelse(data_df$gender == "male", 90, data_df$y_values)
   data_df$labels = paste(data_df$y_values, "%")
-  data_df$labels = if_else(data_df$gender == "male", data_df$significance,
+  data_df$labels = ifelse(data_df$gender == "male", data_df$significance,
                             data_df$labels)
   baseline_df <- data.frame(level = unique(data_df$x_values),
                             baseline = baseline_female)
@@ -51,7 +53,7 @@ bullet_chart <- function(data_df, baseline_female, x_title, y_title,
     geom_bar(aes(x = level, y = baseline, fill = "#D7191C"), 
              data = {{baseline_df}}, width = 0.85, stat = "identity",
              show.legend = FALSE) +
-    geom_bar(aes(x = .data$x_values, y = .data$y_values, fill = .data$gender),
+    geom_bar(aes(x = x_values, y = y_values, fill = gender),
              data = {{data_df}}, stat = "identity", width = 0.4) +
     scale_fill_manual(values = c(alpha("#D7191C", .4), alpha("#512B58", .7), 
                                alpha("#2A7886", 0.7)),
@@ -59,12 +61,10 @@ bullet_chart <- function(data_df, baseline_female, x_title, y_title,
                       name = "") +
     guides(fill = guide_legend(override.aes = list(alpha = 0.5))) +
     scale_x_discrete(limits = rev(levels(droplevels(data_df$x_values)))) +
-    geom_text(data = {{data_df}}, aes(x = .data$x_values, y = .data$pos,
-                                      label = .data$labels),
+    geom_text(data = {{data_df}}, aes(x = x_values, y = pos, label =labels),
               size = 15 / .pt, vjust = -0.2) +
-    geom_errorbar(data = {{data_df}}, aes(x = .data$x_values, 
-                                          ymin = .data$lower_CI, 
-                                          ymax = .data$upper_CI), width = 0.3) +
+    geom_errorbar(data = {{data_df}}, aes(x = x_values, ymin = lower_CI, 
+                                          ymax = upper_CI), width = 0.3) +
     theme_gd() + xlab({{x_title}}) + ylab({{y_title}}) + coord_flip()
   plot 
 }

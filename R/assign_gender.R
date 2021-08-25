@@ -19,7 +19,7 @@ assign_gender <- function(data_df, first_name_col) {
   ## read the data frame and convert special character to ASCII to better assign 
   ## the gender. The first name need to be without accent or special character,
   ## this is why we use here the function iconv.
-  UKUS_GENDER <- Name <- NULL
+  UKUS_Gender <- Name <- NULL
   df <- data_df
   df$Name <- tolower(iconv(df[,first_name_col], from = "UTF-8", 
                            to = "ASCII//TRANSLIT"))
