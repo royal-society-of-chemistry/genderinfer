@@ -1,6 +1,6 @@
 Package: GenderInfer
 Type: Package
-Title: This is a collection of functions to analysis gender differences 
+Title: This is a Collection of Functions to Analysis Gender Differences 
 Version: 0.1.0
 Author: c( person("Rita", "Giordano", role  c("aut", "cre")), person("Aileen", "Day", role = "aut"), person("John", "Boyle", role = "aut"), person("Colin", "Batchelor", role = "ctb"))
 Maintainer: The package maintainer <giordanor@rsc.org>
