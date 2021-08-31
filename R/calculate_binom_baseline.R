@@ -64,6 +64,7 @@ calculate_binom_baseline <- function(data_df, baseline_female,
                                        "Significant", "")
     outdf
   }
+  return(outdf)
   #outbin_df <- do.call(rbind.data.frame, t(outbin))
   #outbin_df$significance <- as.character(outbin_df$significance)
     #mutate_if(is.list, as.numeric)
