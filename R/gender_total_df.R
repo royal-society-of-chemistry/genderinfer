@@ -1,10 +1,10 @@
-#' Create a dataframe that will be the input to generate the bar chart of 
+#' Create a dataframe that will be the input to generate the bar chart of
 #' the full amount of female and male
 #'
 #' @name gender_total_df
-#' @param data_df, dataframe containing Level, LCI, UCI, 
+#' @param data_df, dataframe containing Level, LCI, UCI,
 #' Significance and Male and Female percentages
-#' @param level, name of level 
+#' @param level, name of level
 #' @returns dataframe with the columns x_values, total_female_male, gender,
 #'  y_values,
 #' @examples
@@ -15,7 +15,7 @@
 
 
 gender_total_df <- function(data_df, level) {
-  
+
   x_values <- y_values <- gender <- total_female_male <- NULL
   long <- reshape(data_df, direction = "long", v.names = "y_values",
                   varying = 2:4, times = names(data_df)[2:4],

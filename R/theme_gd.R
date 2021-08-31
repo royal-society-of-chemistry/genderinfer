@@ -15,7 +15,6 @@ theme_gd <- function() {
           axis.text.y  = element_text(size = 16),
           legend.title = element_text(size = 16),
           legend.text = element_text(size = 12),
-          
           text = element_text(color = "navy"),
           panel.background = element_rect(fill = "white"),
           panel.grid.major.x = element_line(color = "grey"),
@@ -24,6 +23,6 @@ theme_gd <- function() {
           panel.grid.major.y = element_blank(),
           panel.grid.minor.y = element_blank(),
           axis.ticks = element_blank(),
-          strip.background = element_rect(fill = "white", color ="grey"),
-          legend.position ="bottom", legend.direction ="horizontal") 
-    }
+          strip.background = element_rect(fill = "white", color = "grey"),
+          legend.position = "bottom", legend.direction = "horizontal")
+}

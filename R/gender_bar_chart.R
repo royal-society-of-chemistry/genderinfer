@@ -16,7 +16,7 @@
 
 
 gender_bar_chart <- function(data_df, x_title, y_title, label_name) {
-  
+
   ## define global variable to NULL
   x_values <- y_values <- gender <- total_female_male <- NULL
   plot <- ggplot() +
@@ -27,11 +27,11 @@ gender_bar_chart <- function(data_df, x_title, y_title, label_name) {
                                alpha("#512B58", .7)),
                       breaks = c("unknown", "male", "female")) +
     scale_x_discrete(limits = rev(levels(droplevels(data_df$x_values)))) +
-    geom_text(data = data_df, aes(x = x_values, 
+    geom_text(data = data_df, aes(x = x_values,
                                   y = total_female_male,
-                                  label = paste({{label_name}}, 
+                                  label = paste({{label_name}},
                                                 total_female_male, sep = " "),
-                                  size = 13/.pt), show.legend = FALSE) +
+                                  size = 13 / .pt), show.legend = FALSE) +
   xlab({{x_title}}) + ylab({{y_title}}) + theme_gd()
   plot
 }

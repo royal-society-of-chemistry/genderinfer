@@ -21,7 +21,7 @@ bullet_line_chart(
 \arguments{
 \item{data_df, }{dataframe in output from the function \code{\link{percent_df}}}
 
-\item{baseline_female, }{numeric vector containing the baseline for each level.}
+\item{baseline_female, }{numeric vector containing the baseline for each level}
 
 \item{x_title, }{label for x axis}
 
@@ -29,7 +29,7 @@ bullet_line_chart(
 
 \item{baseline_label, }{label used to define the baseline name.}
 
-\item{total_number_df, }{data frame containing the total number of submissions.}
+\item{total_number_df, }{data frame containing the total number of submissions}
 
 \item{var_name, }{variable from total_number_df to plot.}
 
@@ -41,7 +41,8 @@ bullet_line_chart(
 with the corresponding baseline for a years period.}
 }
 \value{
-This function create a bar chart containing the percentage of submission
+The function create a bar chart containing the percentage of male and
+female and the total number of submissions on the top chart.
 }
 \description{
 Create a Bullet chart together with a line chart

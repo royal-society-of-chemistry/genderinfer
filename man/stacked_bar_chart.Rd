@@ -2,7 +2,7 @@
 % Please edit documentation in R/stacked_bar_chart.R
 \name{stacked_bar_chart}
 \alias{stacked_bar_chart}
-\title{Create a stacked bar chart with significance bars to compare with the 
+\title{Create a stacked bar chart with significance bars to compare with the
 baseline for gender analysis}
 \usage{
 stacked_bar_chart(
@@ -25,11 +25,11 @@ stacked_bar_chart(
 \item{baseline_label, }{label used to define the baseline name.}
 }
 \value{
-This function create a bar chart containing the percentage of 
+This function create a bar chart containing the percentage of
 submission with the corresponding baseline.
 }
 \description{
-Create a stacked bar chart with significance bars to compare with the 
+Create a stacked bar chart with significance bars to compare with the
 baseline for gender analysis
 }
 \examples{

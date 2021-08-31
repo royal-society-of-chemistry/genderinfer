@@ -16,9 +16,3 @@ balloon_plot(data_df, first_name, gender)
 \description{
 Function to create the balloon plot for gender first name
 }
-\examples{
- 
-\dontrun{
-authors_df \%>\% balloon_plot(first_name = first_name, gender) 
-}
-}

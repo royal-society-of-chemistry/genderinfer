@@ -8,7 +8,7 @@ bullet chart that show percentage to compare proportions among gender.}
 percent_df(data_df)
 }
 \arguments{
-\item{data_df, }{dataframe containing level, lower_CI, upper_CI, 
+\item{data_df, }{dataframe containing level, lower_CI, upper_CI,
 significance and female and male percentages}
 }
 \value{

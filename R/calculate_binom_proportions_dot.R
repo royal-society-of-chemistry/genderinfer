@@ -1,12 +1,12 @@
 #' Function to calculate the binomial proportions
-#' 
-#' @description \code{calculate_binom_proportions} calls Exact Binomial Test 
+#'
+#' @description \code{calculate_binom_proportions} calls Exact Binomial Test
 #'  function \code{binom.test}
 #' @param noFirst, number of successes, numeric vector
 #' @param noSecond, number of failures, numeric vector
 #' @param expectedProportion, background population
 #' @param noTests, for multinomial test default value 1
-#' @param confidenceLevel, confidence level for the returned confidence interval,
+#' @param confidenceLevel, confidence level for the returned confidence interval
 #'  default is 0.95 using account method mechanism.
 #' @return The output will be a vector of the form:
 #'
@@ -41,16 +41,16 @@
 
 .calculate_binom_proportions <- function(noFirst, noSecond, expectedProportion,
                                         noTests=1, confidenceLevel=0.95) {
-  vector("numeric", 8) -> rr
-  result_binom <- binom.test(x = noFirst, n = noSecond + noFirst, 
+  rr <- vector("numeric", 8)
+  result_binom <- binom.test(x = noFirst, n = noSecond + noFirst,
                              p = expectedProportion,
                              conf.level = confidenceLevel)
   rr[1] <- noFirst
   rr[2] <- noSecond
   #simple aka conservative multitest correction
   rr[3] <- result_binom$p.value * noTests
-  if (rr[3] > 1) { 
-      rr[3] <- 1 
+  if (rr[3] > 1) {
+      rr[3] <- 1
       }
   rr[4] <- result_binom$p.value
   rr[5] <- result_binom$estimate

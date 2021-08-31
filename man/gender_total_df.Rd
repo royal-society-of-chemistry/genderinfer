@@ -2,13 +2,13 @@
 % Please edit documentation in R/gender_total_df.R
 \name{gender_total_df}
 \alias{gender_total_df}
-\title{Create a dataframe that will be the input to generate the bar chart of 
+\title{Create a dataframe that will be the input to generate the bar chart of
 the full amount of female and male}
 \usage{
 gender_total_df(data_df, level)
 }
 \arguments{
-\item{data_df, }{dataframe containing Level, LCI, UCI, 
+\item{data_df, }{dataframe containing Level, LCI, UCI,
 Significance and Male and Female percentages}
 
 \item{level, }{name of level}
@@ -18,7 +18,7 @@ dataframe with the columns x_values, total_female_male, gender,
  y_values,
 }
 \description{
-Create a dataframe that will be the input to generate the bar chart of 
+Create a dataframe that will be the input to generate the bar chart of
 the full amount of female and male
 }
 \examples{

@@ -9,35 +9,35 @@
 #' @export
 
 
-reshape_for_binomials <- function(data_df, gendercol, level){
+reshape_for_binomials <- function(data_df, gendercol, level) {
   F <- M <- U <- NULL
   data_df$gender <- factor(data_df[, gendercol])
-  if (ncol(data_df) == 2)
-  {
+  if (ncol(data_df) == 2) {
     names(data_df)
     data_df$level <- factor(level)
-    wide <- reshape(data_df, timevar = gendercol, idvar = "level", direction = "wide")
+    wide <- reshape(data_df, timevar = gendercol, idvar = "level",
+                    direction = "wide")
   }else if (ncol(data_df) > 2) {
-    data_df$level <- unique(data_df[ , level])
-    data_df[ , level] <- NULL
+    data_df$level <- unique(data_df[, level])
+    data_df[, level] <- NULL
     names(data_df)
-    wide <- reshape(data_df, timevar = gendercol, idvar = "level", direction = "wide")
+    wide <- reshape(data_df, timevar = gendercol, idvar = "level",
+                    direction = "wide")
   }else {
     stop(paste0(level, " is not a valid colum of the dataframe"))
-  } 
-  
+  }
+
   colnames(wide) <-  c("level", "F", "M", "U")
   wide$female <- as.numeric(wide$F)
-  wide$male <- as.numeric(wide$M) 
+  wide$male <- as.numeric(wide$M)
   wide$unknown <- as.numeric(wide$U)
-  wide$level = factor(wide$level, levels = wide$level)
-  wide$total_for_level = wide$female + wide$male + wide$unknown
-  wide$total_female_male = wide$female + wide$male
-  wide$female_percentage = round((wide$female / wide$total_female_male) * 100,
+  wide$level <- factor(wide$level, levels = wide$level)
+  wide$total_for_level <- wide$female + wide$male + wide$unknown
+  wide$total_female_male <- wide$female + wide$male
+  wide$female_percentage <- round((wide$female / wide$total_female_male) * 100,
                                  1)
-  wide$male_percentage = round((wide$male / wide$total_female_male) * 100, 
-                               1)
+  wide$male_percentage <- round((wide$male / wide$total_female_male) * 100, 1)
   wide <- subset(wide, select = -c(F, M, U))
-  
+
   return(wide)
 }

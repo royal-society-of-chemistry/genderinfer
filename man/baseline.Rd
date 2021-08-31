@@ -12,7 +12,7 @@ baseline(data_df, gendercol)
 \item{gendercol, }{the name of the column containing the gender information.}
 }
 \value{
-This function returns a numeric vector containing the baseline values
+The function returns a numeric vector containing the baseline values
 }
 \description{
 \code{baseline} calculate the female baseline giving a dataframe
@@ -20,8 +20,8 @@ containing the gender informations.
 }
 \examples{
 ## df is the dataframe in output from the function assign_gender
-df <- data.frame(first_name = c("anna", "john", "ernest", "colin", "aileen"), 
-                 gender = c("F", "M",  "M", "M", "F"), 
+df <- data.frame(first_name = c("anna", "john", "ernest", "colin", "aileen"),
+                 gender = c("F", "M",  "M", "M", "F"),
                  stringsAsFactors = FALSE)
 baseline <- baseline(df, gendercol = "gender")
 }

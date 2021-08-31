@@ -10,7 +10,7 @@ bullet_chart(data_df, baseline_female, x_title, y_title, baseline_label)
 \arguments{
 \item{data_df, }{dataframe in output from the function \code{\link{percent_df}}}
 
-\item{baseline_female, }{numeric vector containing the baseline for each level.}
+\item{baseline_female, }{numeric vector containing the baseline for each level}
 
 \item{x_title, }{label for x axis}
 
@@ -19,7 +19,7 @@ bullet_chart(data_df, baseline_female, x_title, y_title, baseline_label)
 \item{baseline_label, }{label used to define the baseline name.}
 }
 \value{
-This function create a bar chart containing the percentage of 
+This function create a bar chart containing the percentage of
 submission with the corresponding baseline for a years period.
 }
 \description{

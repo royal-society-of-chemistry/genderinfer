@@ -36,24 +36,24 @@
 calculate_binom_baseline <- function(data_df, baseline_female,
                                      confidence_level = 0.95) {
   
-  #print("Create empty columns")
+  
   outdf <- data_df 
-  outdf$lower_CI = 0
-  outdf$upper_CI = 0
-  outdf$lower_CI_count = 0
-  outdf$upper_CI_count = 0
-  outdf$adjusted_p_value = 0
-  outdf$significance = ""
-  outdf$baseline = baseline_female
+  outdf$lower_CI <- 0
+  outdf$upper_CI <- 0
+  outdf$lower_CI_count <- 0
+  outdf$upper_CI_count <- 0
+  outdf$adjusted_p_value <- 0
+  outdf$significance <- ""
+  outdf$baseline <- baseline_female
   outdf
-  #print("create binomial vector")
+  
   rr_row <- sapply(seq_len(length(outdf$female)), function(x) {
     .calculate_binom_proportions(noFirst = as.numeric(outdf$female[x]),
                                  noSecond = as.numeric(outdf$male[x]),
                                  expectedProportion = as.numeric(outdf$baseline[x]) / 100)
   })
   rr_row
-  #outbin <- lapply(seq_len(length(outdf$female)), function(x) {
+  
   for (x in seq_len(length(outdf$female))) {
     outdf[x, "lower_CI"] <- round(100 * as.numeric(rr_row["LowerCI", x]), 2)
     outdf[x, "lower_CI_count"] <- round(outdf$female[x] * rr_row["LowerCI", x] / rr_row["ActualProportion", x], 2)
@@ -65,7 +65,4 @@ calculate_binom_baseline <- function(data_df, baseline_female,
     outdf
   }
   return(outdf)
-  #outbin_df <- do.call(rbind.data.frame, t(outbin))
-  #outbin_df$significance <- as.character(outbin_df$significance)
-    #mutate_if(is.list, as.numeric)
 }
