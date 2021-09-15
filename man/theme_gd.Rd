@@ -2,15 +2,17 @@
 % Please edit documentation in R/theme_gd.R
 \name{theme_gd}
 \alias{theme_gd}
-\title{gender diversity theme for ggplot2}
+\title{This function create a gender diversity theme for chart based on ggplot2}
 \usage{
 theme_gd()
 }
+\value{
+an object of the class theme defined in ggplot2 own class system.
+}
 \description{
-gender diversity theme for ggplot2
+This function create a gender diversity theme for chart based on ggplot2
 }
 \examples{
-\dontrun{
- gender_bar_chart(data_df) + theme_gd
-}
+ require(ggplot2)
+ ggplot(authors, aes(x = publication_years)) + geom_bar() + theme_gd()
 }

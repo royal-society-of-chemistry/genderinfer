@@ -19,7 +19,8 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(GenderInfer)
-
+library(dplyr)
+library(ggplot2)
 ```
 
 ## GenderInfer package
@@ -60,9 +61,6 @@ It creates in output a data frame, similar to the input one, but with a new colu
 
 
 ```{r, warning=FALSE, message=FALSE}
-library(dplyr)
-library(ggplot2)
-
 authors_df <- assign_gender(data_df = authors, first_name_col = "first_name")
   
 head(authors_df)

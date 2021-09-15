@@ -7,7 +7,7 @@
 #' @returns dataframe with the columns x_values, y_values, gender, labels
 #' @examples
 #' \dontrun{
-#' percent_df <-percent_df(data_dfF)
+#' percent_df <-percent_df(data_df)
 #' }
 #' @export
 

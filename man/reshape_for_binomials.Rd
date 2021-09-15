@@ -13,6 +13,23 @@ reshape_for_binomials(data_df, gendercol, level)
 
 \item{level, }{variable to compare for the baseline.}
 }
+\value{
+The ouput is a dataframe containing more columns, such as:
+
+level : the variable used to perform the binomials
+total_for_level: the total amount of all the gender including unknonws
+total_female_male: the total amount of male and female
+female_percentage: the percentage of female on the total_female_male
+male_pergentage: the percentage of male on the total_female_male
+}
 \description{
 reshape dataframe from long format to wide format.
+}
+\examples{
+authors_df <- assign_gender(data_df = authors, first_name_col = "first_name")
+female_count <- dplyr::count(authors_df, gender)
+
+## create a new data frame to be used for the binomial calculation.
+df_gender <- reshape_for_binomials(data = female_count, gendercol = "gender",
+                                  level = 2020)
 }

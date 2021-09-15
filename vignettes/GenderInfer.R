@@ -7,15 +7,13 @@ knitr::opts_chunk$set(
 
 ## ----setup--------------------------------------------------------------------
 library(GenderInfer)
-
+library(dplyr)
+library(ggplot2)
 
 ## ---- warning=FALSE, message=FALSE--------------------------------------------
 head(authors)
 
 ## ---- warning=FALSE, message=FALSE--------------------------------------------
-library(dplyr)
-library(ggplot2)
-
 authors_df <- assign_gender(data_df = authors, first_name_col = "first_name")
   
 head(authors_df)

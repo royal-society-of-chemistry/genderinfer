@@ -20,6 +20,6 @@ bullet chart that show percentage to compare proportions among gender.
 }
 \examples{
 \dontrun{
-percent_df <-percent_df(data_dfF)
+percent_df <-percent_df(data_df)
 }
 }
