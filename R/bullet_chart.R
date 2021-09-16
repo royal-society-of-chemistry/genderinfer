@@ -2,7 +2,7 @@
 #' in percentage for gender analysis
 #'
 #' @name bullet_chart
-#' @param data_df, dataframe in output from the function \code{\link{percent_df}}
+#' @param data_df, dataframe in output from \code{\link{percent_df}}
 #' @param baseline_female, numeric vector containing the baseline for each level
 #' @param x_title, label for x axis
 #' @param y_title, label for y axis

@@ -11,7 +11,7 @@ Authors@R: c(
 Maintainer: Rita Giordano <giordanor@rsc.org>
 Description: Implementation of functions, which combines binomial calculation 
     and data visualisation, to analyse the differences in publishing authorship
-    by gender described in Aileen Day (2020) <doi:10.1039/C9SC04090K>.
+    by gender described in Day et al. (2020) <doi:10.1039/C9SC04090K>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

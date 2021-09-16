@@ -2,11 +2,11 @@
 #' @param data_df, data frame containing `first name` and `gender` columns
 #' @param first_name, first name column's name
 #' @param gender, gender column name
-#' @param cutoff, numerical value indicating where to cut the count data 
-#' @return The output is a gg class from ggplot2, it shows the most frequent name 
-#' as a balloon plot.
-#' @examples  
-#' gender <- assign_gender(authors, "first_name")
+#' @param cutoff, numerical value indicating where to cut the count data
+#' @return The output is a gg object from ggplot2 which shows the most frequent
+#' names as a balloon plot.
+#' @examples
+#' #' gender <- assign_gender(authors, "first_name")
 #' bp <- balloon_plot(gender, "first_name", "gender", cut = 5)
 #' @importFrom stats reorder
 #' @importFrom ggplot2 scale_alpha_continuous

@@ -6,7 +6,7 @@
 #' @usage data(gender_names)
 #' @noRd
 
-gender_names <- read.csv("../../data/genderNames.csv") %>% 
+gender_names <- read.csv("../../data/genderNames.csv") %>%
   mutate_if(is.factor, as.character)
 Encoding(gender_names$Name) <- "latin1"
 gender_names$Name <- iconv(gender_names$Name, "latin1", "ASCII", sub = "")

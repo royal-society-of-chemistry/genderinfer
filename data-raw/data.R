@@ -6,7 +6,7 @@
 #'
 
 ## generate a dummy data frame containing names
-authors <- read.csv("../data/input_names.csv") %>% 
+authors <- read.csv("../data/input_names.csv") %>%
   mutate_if(is.factor, as.character)
 
 usethis::use_data(authors, overwrite = TRUE)

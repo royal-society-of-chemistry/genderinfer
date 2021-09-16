@@ -16,7 +16,7 @@
 
 assign_gender <- function(data_df, first_name_col) {
 
-  ## read the data frame and convert special character to ASCII to better  
+  ## read the data frame and convert special character to ASCII to better
   ## assign the gender. The first name need to be without accent or special
   ## character, this is why we use here the function iconv.
   UKUS_Gender <- Name <- NULL

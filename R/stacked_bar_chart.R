@@ -24,14 +24,14 @@
 stacked_bar_chart <- function(data_df, baseline_female_percentage, x_title,
                               y_title, baseline_label) {
 
-  Labels <- x_values <- y_values <- gender <- pos <- NULL
+  labels <- x_values <- y_values <- gender <- pos <- NULL
   lower_CI <- upper_CI <- NULL
   data_df$gender <- factor(gsub("_percentage", "", data_df$gender),
                            levels = c("male", "female"))
   data_df$pos <- ifelse(data_df$gender == "male", 90, data_df$y_values)
-  data_df$Labels <- paste(data_df$y_values, "%")
-  data_df$Labels <- ifelse(data_df$gender == "male", data_df$significance,
-                            data_df$Labels)
+  data_df$labels <- paste(data_df$y_values, "%")
+  data_df$labels <- ifelse(data_df$gender == "male", data_df$significance,
+                            data_df$labels)
   plot <- ggplot() +
     geom_bar(aes(x = x_values, y = y_values, fill = gender),
              data = {{data_df}}, stat = "identity") +
@@ -39,7 +39,7 @@ stacked_bar_chart <- function(data_df, baseline_female_percentage, x_title,
                     labels = c("Male", "Female"), name = "") +
     scale_x_discrete(limits = rev(levels(droplevels(data_df$x_values)))) +
     geom_text(data = {{data_df}}, aes(x = x_values, y = pos,
-                                     label = Labels),
+                                     label = labels),
               size = 18 / .pt, vjust = 0, nudge_y = 0.5) +
     theme(legend.position = "bottom", legend.direction = "horizontal") +
     geom_line() +

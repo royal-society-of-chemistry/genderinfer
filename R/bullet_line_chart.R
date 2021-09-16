@@ -3,7 +3,7 @@
 #'
 #' @name bullet_line_chart
 #'
-#' @param data_df, dataframe in output from the function \code{\link{percent_df}}
+#' @param data_df, dataframe in output from \code{\link{percent_df}}
 #' @param baseline_female, numeric vector containing the baseline for each level
 #' @param x_title, label for x axis
 #' @param y_title, label for y axis
@@ -14,7 +14,8 @@
 #' @param ysectitle, title of the second y-axis
 #' @return The function create a bar chart containing the percentage of male and
 #' female and the total number of submissions on the top chart.
-#' @param line_label, label used to define the line chart.
+#' @param line_label,
+#' label used to define the line chart.
 #' with the corresponding baseline for a years period.
 #' @examples
 #' \dontrun{
