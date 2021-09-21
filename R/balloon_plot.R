@@ -1,12 +1,13 @@
 #' Function to create the balloon plot for gender first name
 #' @param data_df, data frame containing `first name` and `gender` columns
 #' @param first_name, first name column's name
-#' @param gender, gender column name
+#' @param gender, gender possible values are F for female, M for male and U 
+#' for unknown
 #' @param cutoff, numerical value indicating where to cut the count data
 #' @return The output is a gg object from ggplot2 which shows the most frequent
 #' names as a balloon plot.
 #' @examples
-#' #' gender <- assign_gender(authors, "first_name")
+#' gender <- assign_gender(authors, "first_name")
 #' bp <- balloon_plot(gender, "first_name", "gender", cut = 5)
 #' @importFrom stats reorder
 #' @importFrom ggplot2 scale_alpha_continuous
@@ -16,7 +17,7 @@
 
 balloon_plot <- function(data_df, first_name, gender,
                          cutoff) {
-  n <- NULL
+  n <- gender <- NULL
   df <- subset(data_df, length(data_df$first_name) > 1 & gender == gender)
   df <- as.data.frame(table(df[, c("first_name")]))
   df <- df[order(df$Freq, decreasing = TRUE), ]
@@ -26,7 +27,7 @@ balloon_plot <- function(data_df, first_name, gender,
   names(df)[names(df) == "Freq"] <- "n"
   ## subset the dataframe to include only data greater of a certain value
   df <- subset(df, n >= cutoff)
-  ## Create baloon plot
+  ## Create balloon plot
   gg_m <- ggplot(df, aes(x = factor(col), y = reorder(factor(first_name), n),
                          size = n, colour = n,
                          alpha = n)) +

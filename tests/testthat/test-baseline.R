@@ -7,6 +7,6 @@ test_that("baseline is numeric", {
                    gender = gender,
                    stringsAsFactors = FALSE)
 
-  baselin <- baseline(df, gendercol = "gender")
+  baselin <- baseline(df, gender_col = "gender")
   expect_is(baselin, "numeric")
 })

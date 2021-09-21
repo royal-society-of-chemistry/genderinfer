@@ -4,12 +4,12 @@
 \alias{baseline}
 \title{Calculate the female baseline}
 \usage{
-baseline(data_df, gendercol)
+baseline(data_df, gender_col)
 }
 \arguments{
 \item{data_df, }{dataframe containg the gender column.}
 
-\item{gendercol, }{the name of the column containing the gender information.}
+\item{gender_col, }{the name of the column containing the gender information.}
 }
 \value{
 The function returns a numeric vector containing the baseline values
@@ -23,5 +23,5 @@ containing the gender informations.
 df <- data.frame(first_name = c("anna", "john", "ernest", "colin", "aileen"),
                  gender = c("F", "M",  "M", "M", "F"),
                  stringsAsFactors = FALSE)
-baseline <- baseline(df, gendercol = "gender")
+baseline <- baseline(df, gender_col = "gender")
 }

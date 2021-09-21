@@ -3,7 +3,7 @@
 #'@description Function to calculate the lower CI, upper CI, percentages and 
 #' counts, and significance of difference from one or multiple baseline 
 #' percentages, given supplied confidence level using
-#'@param data_df, dataframe from \code{\link{reshape_for_binomials}}
+#'@param data_df, dataframe in output from \code{\link{reshape_for_binomials}}
 #' containing the columns: female, male, which contain the integer counts of 
 #' males and females respectively and must be a numeric vector greater than 0.
 #'@param baseline_female, the baseline used for the calculation.
@@ -26,11 +26,6 @@
 #' significance = flag indicating whether difference of female percentage with 
 #' baseline percentage is significant for the row in consideration. It has
 #' values "significant" or "" if not.
-#'@examples
-#'\dontrun{
-#'##df dataframe in output from the function reshape_for_binomial
-#'calculate_binom_baseline(df, baseline)
-#'}
 #'@export
 
 calculate_binom_baseline <- function(data_df, baseline_female,

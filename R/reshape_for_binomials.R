@@ -4,7 +4,7 @@
 #' @description reshape dataframe from long format to wide format.
 #' @param data_df, dataframe containing the columns gender and counts
 #' @param level, variable to compare for the baseline.
-#' @param gendercol, the name of the column containing the gender values.
+#' @param gender_col, the name of the column containing the gender values.
 #' @return A dataframe containing more columns, such as:
 #'
 #' level : the variable used to perform the binomials
@@ -18,25 +18,25 @@
 #' female_count <- dplyr::count(authors_df, gender)
 #'
 #' ## create a new data frame to be used for the binomial calculation.
-#' df_gender <- reshape_for_binomials(data = female_count, gendercol = "gender",
+#' df_gender <- reshape_for_binomials(data = female_count, gender_col = "gender",
 #'                                   level = 2020)
 #' @importFrom stats reshape
 #' @export
 
 
-reshape_for_binomials <- function(data_df, gendercol, level) {
+reshape_for_binomials <- function(data_df, gender_col, level) {
   F <- M <- U <- NULL
-  data_df$gender <- factor(data_df[, gendercol])
+  data_df$gender <- factor(data_df[, gender_col])
   if (ncol(data_df) == 2) {
     names(data_df)
     data_df$level <- factor(level)
-    wide <- reshape(data_df, timevar = gendercol, idvar = "level",
+    wide <- reshape(data_df, timevar = gender_col, idvar = "level",
                     direction = "wide")
   }else if (ncol(data_df) > 2) {
     data_df$level <- unique(data_df[, level])
     data_df[, level] <- NULL
     names(data_df)
-    wide <- reshape(data_df, timevar = gendercol, idvar = "level",
+    wide <- reshape(data_df, timevar = gender_col, idvar = "level",
                     direction = "wide")
   }else {
     stop(paste0(level, " is not a valid colum of the dataframe"))

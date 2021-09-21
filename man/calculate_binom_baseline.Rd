@@ -7,7 +7,7 @@
 calculate_binom_baseline(data_df, baseline_female, confidence_level = 0.95)
 }
 \arguments{
-\item{data_df, }{dataframe from the function \code{\link{reshape_for_binomials}}
+\item{data_df, }{dataframe from \code{\link{reshape_for_binomials}}
 containing the columns: female, male, which contain the integer counts of 
 males and females respectively and must be a numeric vector greater than 0.}
 

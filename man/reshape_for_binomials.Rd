@@ -2,25 +2,25 @@
 % Please edit documentation in R/reshape_for_binomials.R
 \name{reshape_for_binomials}
 \alias{reshape_for_binomials}
-\title{Reshape the dataframe to apply binomial calculations.}
+\title{Reshape the dataframe to make it easier to carry out binomial calculations.}
 \usage{
-reshape_for_binomials(data_df, gendercol, level)
+reshape_for_binomials(data_df, gender_col, level)
 }
 \arguments{
 \item{data_df, }{dataframe containing the columns gender and counts}
 
-\item{gendercol, }{the name of the column containing the gender values.}
+\item{gender_col, }{the name of the column containing the gender values.}
 
 \item{level, }{variable to compare for the baseline.}
 }
 \value{
-The ouput is a dataframe containing more columns, such as:
+A dataframe containing more columns, such as:
 
 level : the variable used to perform the binomials
-total_for_level: the total amount of all the gender including unknonws
+total_for_level: the total amount of each gender including unknowns
 total_female_male: the total amount of male and female
-female_percentage: the percentage of female on the total_female_male
-male_pergentage: the percentage of male on the total_female_male
+female_percentage: the percentage of female in the total_female_male
+male_percentage: the percentage of male in the total_female_male
 }
 \description{
 reshape dataframe from long format to wide format.
@@ -30,6 +30,6 @@ authors_df <- assign_gender(data_df = authors, first_name_col = "first_name")
 female_count <- dplyr::count(authors_df, gender)
 
 ## create a new data frame to be used for the binomial calculation.
-df_gender <- reshape_for_binomials(data = female_count, gendercol = "gender",
+df_gender <- reshape_for_binomials(data = female_count, gender_col = "gender",
                                   level = 2020)
 }

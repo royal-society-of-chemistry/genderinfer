@@ -8,11 +8,6 @@
 #' @param baseline_label, label used to define the baseline name.
 #' @return This function create a bar chart containing the percentage of
 #' submission with the corresponding baseline.
-#' @examples
-#' \dontrun{
-#' stacked_bar_chart(percent_df, baseline,
-#' "Submissions (%)", "Months", "Women baseline")
-#' }
 #' @importFrom ggplot2 geom_point
 #' @importFrom ggplot2 geom_line
 #' @importFrom ggplot2 scale_y_continuous

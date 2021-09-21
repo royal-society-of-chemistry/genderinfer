@@ -9,11 +9,6 @@
 #' @param baseline_label, label used to define the baseline name.
 #' @return This function create a bar chart containing the percentage of
 #' submission with the corresponding baseline for a years period.
-#' @examples
-#' \dontrun{
-#' bullet_chart(percent_df, baseline_female, "Submissions (%)", "Months",
-#' "Women baseline")
-#' }
 #' @importFrom ggplot2 xlab
 #' @importFrom ggplot2 ggplot
 #' @importFrom ggplot2 geom_bar

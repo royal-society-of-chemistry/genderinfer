@@ -8,7 +8,7 @@ in percentage for gender analysis}
 bullet_chart(data_df, baseline_female, x_title, y_title, baseline_label)
 }
 \arguments{
-\item{data_df, }{dataframe in output from the function \code{\link{percent_df}}}
+\item{data_df, }{dataframe in output from \code{\link{percent_df}}}
 
 \item{baseline_female, }{numeric vector containing the baseline for each level}
 

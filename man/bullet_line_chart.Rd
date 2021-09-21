@@ -9,36 +9,32 @@ bullet_line_chart(
   data_df,
   baseline_female,
   x_title,
-  y_title,
+  y_bar_chart_title,
   baseline_label,
-  total_number_df,
-  var_name,
-  c,
-  ysectitle,
+  line_chart_df,
+  line_chart_scaling,
+  y_line_chart_title,
   line_label
 )
 }
 \arguments{
-\item{data_df, }{dataframe in output from the function \code{\link{percent_df}}}
+\item{data_df, }{dataframe in output from \code{\link{percent_df}}}
 
 \item{baseline_female, }{numeric vector containing the baseline for each level}
 
-\item{x_title, }{label for x axis}
+\item{x_title, }{label for x axis for both charts}
 
-\item{y_title, }{label for y axis}
+\item{y_bar_chart_title, }{label for y axis of the bar chart}
 
 \item{baseline_label, }{label used to define the baseline name.}
 
-\item{total_number_df, }{data frame containing the total number of submissions}
+\item{line_chart_df, }{data frame containing the total number of submissions}
 
-\item{var_name, }{variable from total_number_df to plot.}
+\item{line_chart_scaling, }{factor of conversion for second y-axis}
 
-\item{c, }{factor of conversion for second y-axis}
+\item{y_line_chart_title, }{title the y-axis of the line chart}
 
-\item{ysectitle, }{title of the second y-axis}
-
-\item{line_label, }{label used to define the line chart.
-with the corresponding baseline for a years period.}
+\item{line_label, }{label used to define the line chart.}
 }
 \value{
 The function create a bar chart containing the percentage of male and
@@ -47,10 +43,4 @@ female and the total number of submissions on the top chart.
 \description{
 Create a Bullet chart together with a line chart
 to compare different baseline for gender analysis
-}
-\examples{
-\dontrun{
-bullet_line_chart(percent_df, baseline, "Submissions (\%)", "Months",
- "Women baseline", total_number_df, var_name, c, ysectitle, line_label)
-}
 }

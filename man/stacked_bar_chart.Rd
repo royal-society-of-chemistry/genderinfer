@@ -32,9 +32,3 @@ submission with the corresponding baseline.
 Create a stacked bar chart with significance bars to compare with the
 baseline for gender analysis
 }
-\examples{
-\dontrun{
-stacked_bar_chart(percent_df, baseline,
-"Submissions (\%)", "Months", "Women baseline")
-}
-}
