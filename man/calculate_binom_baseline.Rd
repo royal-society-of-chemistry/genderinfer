@@ -7,7 +7,7 @@
 calculate_binom_baseline(data_df, baseline_female, confidence_level = 0.95)
 }
 \arguments{
-\item{data_df, }{dataframe from \code{\link{reshape_for_binomials}}
+\item{data_df, }{dataframe in output from \code{\link{reshape_for_binomials}}
 containing the columns: female, male, which contain the integer counts of 
 males and females respectively and must be a numeric vector greater than 0.}
 
@@ -39,10 +39,4 @@ values "significant" or "" if not.
 Function to calculate the lower CI, upper CI, percentages and 
 counts, and significance of difference from one or multiple baseline 
 percentages, given supplied confidence level using
-}
-\examples{
-\dontrun{
-##df dataframe in output from the function reshape_for_binomial
-calculate_binom_baseline(df, baseline)
-}
 }

@@ -26,9 +26,3 @@ submission with the corresponding baseline for a years period.
 Create a bullet chart with significance bars to compare different baselines
 in percentage for gender analysis
 }
-\examples{
-\dontrun{
-bullet_chart(percent_df, baseline_female, "Submissions (\%)", "Months",
-"Women baseline")
-}
-}

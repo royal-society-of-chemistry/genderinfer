@@ -14,7 +14,7 @@ bar_chart(data_df, x_title, y_title)
 \item{y_title, }{title for y axis}
 }
 \value{
-a barchart
+a barchart as ggplot2 object.
 }
 \description{
 Function to plot the barchart of the total number by gender
