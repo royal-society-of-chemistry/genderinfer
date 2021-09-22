@@ -14,7 +14,8 @@ reshape_for_binomials(data_df, gender_col, level)
 \item{level, }{variable to compare for the baseline.}
 }
 \value{
-A dataframe containing more columns, such as:
+The output is a dataframe containing more columns than the input one,
+such as:
 
 level : the variable used to perform the binomials
 total_for_level: the total amount of each gender including unknowns

@@ -5,7 +5,8 @@
 #' @param data_df, dataframe containing the columns gender and counts
 #' @param level, variable to compare for the baseline.
 #' @param gender_col, the name of the column containing the gender values.
-#' @return A dataframe containing more columns, such as:
+#' @return The output is a dataframe containing more columns than the input one,
+#' such as:
 #'
 #' level : the variable used to perform the binomials
 #' total_for_level: the total amount of each gender including unknowns

@@ -7,8 +7,6 @@
 #' \code{\link{calculate_binom_baseline}}
 #' @returns The output dataframe contains the columns x_values, y_values,
 #' gender, labels
-#' @examples
-
 #' @export
 
 percent_df <- function(data_df) {

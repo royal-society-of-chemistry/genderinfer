@@ -2,11 +2,13 @@
 #' the full amount of female and male
 #'
 #' @name total_gender_df
-#' @param data_df, dataframe containing Level, LCI, UCI,
+#' @param data_df, dataframe from \code{\link{calculate_binom_baseline}}
+#' containing Level, LCI, UCI,
 #' Significance and Male and Female percentages
 #' @param level, name of level
-#' @returns dataframe with the columns x_values, total_female_male, gender,
-#'  y_values.
+#' @returns The output is a dataframe with the columns x_values, 
+#' total_female_male, gender, y_values. This data frame is the input to create 
+#' the bar chart for \code{\link{bar_chart}}
 #' @export
 
 

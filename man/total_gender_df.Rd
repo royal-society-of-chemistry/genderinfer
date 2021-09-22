@@ -8,14 +8,16 @@ the full amount of female and male}
 total_gender_df(data_df, level)
 }
 \arguments{
-\item{data_df, }{dataframe containing Level, LCI, UCI,
+\item{data_df, }{dataframe from \code{\link{calculate_binom_baseline}}
+containing Level, LCI, UCI,
 Significance and Male and Female percentages}
 
 \item{level, }{name of level}
 }
 \value{
-dataframe with the columns x_values, total_female_male, gender,
- y_values.
+The output is a dataframe with the columns x_values, 
+total_female_male, gender, y_values. This data frame is the input to create 
+the bar chart for \code{\link{bar_chart}}
 }
 \description{
 Create a dataframe that will be the input to generate the bar chart of
