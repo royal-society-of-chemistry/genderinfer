@@ -2,18 +2,18 @@
 % Please edit documentation in R/bullet_line_chart.R
 \name{bullet_line_chart}
 \alias{bullet_line_chart}
-\title{Create a Bullet chart together with a line chart
-to compare different baseline for gender analysis}
+\title{Function to create a bullet chart with a line chart in the same graphical 
+frame; to compare different baselines for gender analysis.}
 \usage{
 bullet_line_chart(
   data_df,
   baseline_female,
-  x_title,
-  y_bar_chart_title,
+  x_label,
+  y_bullet_chart_label,
   baseline_label,
   line_chart_df,
   line_chart_scaling,
-  y_line_chart_title,
+  y_line_chart_label,
   line_label
 )
 }
@@ -22,9 +22,9 @@ bullet_line_chart(
 
 \item{baseline_female, }{numeric vector containing the baseline for each level}
 
-\item{x_title, }{label for x axis for both charts}
+\item{x_label, }{label for x axis for both charts}
 
-\item{y_bar_chart_title, }{label for y axis of the bar chart}
+\item{y_bullet_chart_label, }{label for y axis of the bullet chart}
 
 \item{baseline_label, }{label used to define the baseline name.}
 
@@ -32,15 +32,15 @@ bullet_line_chart(
 
 \item{line_chart_scaling, }{factor of conversion for second y-axis}
 
-\item{y_line_chart_title, }{title the y-axis of the line chart}
+\item{y_line_chart_label, }{label the y-axis of the line chart}
 
 \item{line_label, }{label used to define the line chart.}
 }
 \value{
-The function create a bar chart containing the percentage of male and
+The function create a bullet chart containing the percentage of male and
 female and the total number of submissions on the top chart.
 }
 \description{
-Create a Bullet chart together with a line chart
-to compare different baseline for gender analysis
+Function to create a bullet chart with a line chart in the same graphical 
+frame; to compare different baselines for gender analysis.
 }

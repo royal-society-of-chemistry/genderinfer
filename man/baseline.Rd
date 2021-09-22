@@ -7,7 +7,7 @@
 baseline(data_df, gender_col)
 }
 \arguments{
-\item{data_df, }{dataframe containg the gender column.}
+\item{data_df, }{dataframe containing the gender column.}
 
 \item{gender_col, }{the name of the column containing the gender information.}
 }
@@ -16,7 +16,7 @@ The function returns a numeric vector containing the baseline values
 }
 \description{
 \code{baseline} calculate the female baseline giving a dataframe
-containing the gender informations.
+containing the gender information.
 }
 \examples{
 ## df is the dataframe in output from the function assign_gender

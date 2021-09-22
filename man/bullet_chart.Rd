@@ -5,22 +5,23 @@
 \title{Create a bullet chart with significance bars to compare different baselines
 in percentage for gender analysis}
 \usage{
-bullet_chart(data_df, baseline_female, x_title, y_title, baseline_label)
+bullet_chart(data_df, baseline_female, x_label, y_label, baseline_label)
 }
 \arguments{
 \item{data_df, }{dataframe in output from \code{\link{percent_df}}}
 
 \item{baseline_female, }{numeric vector containing the baseline for each level}
 
-\item{x_title, }{label for x axis}
+\item{x_label, }{label for x axis}
 
-\item{y_title, }{label for y axis}
+\item{y_label, }{label for y axis}
 
 \item{baseline_label, }{label used to define the baseline name.}
 }
 \value{
-This function create a bar chart containing the percentage of
-submission with the corresponding baseline for a years period.
+This function create a bullet chart containing the percentage of
+submission with the corresponding baseline for the level defined in
+\code{\link{percent_df}}.
 }
 \description{
 Create a bullet chart with significance bars to compare different baselines

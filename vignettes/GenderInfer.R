@@ -62,8 +62,8 @@ df_gender
 ## bar chart of showing the number of male, female and unknown gender with `gender_bar_chart`
 gender_total <- total_gender_df(data_df = df_gender, level = "level")
 
-bar_chart(data_df = gender_total, x_title = "Year", 
-                 y_title = "Total number")
+bar_chart(data_df = gender_total, x_label = "Year", 
+                 y_label = "Total number")
 
 
 ## ---- fig.width=6-------------------------------------------------------------
@@ -109,7 +109,7 @@ percent_uk_us <- percent_df(UK_US_binom)
 
 bullet_chart <- bullet_chart(data_df = percent_uk_us,
                              baseline_female = baseline_uk_us,
-                             x_title = "Countries", y_title = "% Authors",
+                             x_label = "Countries", y_label = "% Authors",
                              baseline_label = "Female baseline for 2016-2019")
 bullet_chart
 
@@ -147,9 +147,9 @@ total_uk <- authors_df %>%
 ## conversion factor to create the second y-axis
 c <- min(total_uk$n) / 100
 bullet_line_chart(data_df = percent_uk, baseline_female = baseline_fr,
-                  x_title = "year", y_bar_chart_title = "Authors submission (%)",
+                  x_label = "year", y_bullet_chart_label = "Authors submission (%)",
                   baseline_label = "French Female baseline",
                   line_chart_df = total_uk,
-                  line_chart_scaling = c, y_line_chart_title = "Total number",
+                  line_chart_scaling = c, y_line_chart_label = "Total number",
                   line_label = "Total submission UK")
 

@@ -9,11 +9,10 @@ assign_gender(data_df, first_name_col)
 \arguments{
 \item{data_df, }{input dataframe containing the first name}
 
-\item{first_name_col, }{column name containing first names to assign gender
-to}
+\item{first_name_col, }{first name column's name to assign gender to}
 }
 \value{
-the input data frame with the gender column:
+The input data frame with the gender column:
 
          gender - assigned gender (F/M/U)
 }

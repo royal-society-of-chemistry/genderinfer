@@ -4,17 +4,16 @@
 \alias{balloon_plot}
 \title{Function to create the balloon plot for gender first name}
 \usage{
-balloon_plot(data_df, first_name, gender, cutoff)
+balloon_plot(data_df, gender_var, cutoff)
 }
 \arguments{
-\item{data_df, }{data frame containing `first name` and `gender` columns}
+\item{data_df, }{data frame containing `first name` and `gender` columns from 
+\code{\link{assign_gender}}}
 
-\item{first_name, }{first name column's name}
-
-\item{gender, }{gender possible values are F for female, M for male and U 
+\item{gender_var, }{gender possible values are F for female, M for male and U 
 for unknown}
 
-\item{cutoff, }{numerical value indicating where to cut the count data}
+\item{cutoff, }{numerical value indicating where to cut the counting data}
 }
 \value{
 The output is a gg object from ggplot2 which shows the most frequent
@@ -25,5 +24,5 @@ Function to create the balloon plot for gender first name
 }
 \examples{
 gender <- assign_gender(authors, "first_name")
-bp <- balloon_plot(gender, "first_name", "gender", cut = 5)
+bp <- balloon_plot(gender, "M", cutoff = 5)
 }

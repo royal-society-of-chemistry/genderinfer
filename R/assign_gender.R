@@ -4,9 +4,8 @@
 #' @description This function use the data source based on combined US/UK
 #' censor data to assign gender based on first name.
 #' @param data_df, input dataframe containing the first name
-#' @param first_name_col, column name containing first names to assign gender
-#' to
-#' @return the input data frame with the gender column:
+#' @param first_name_col, first name column's name to assign gender to
+#' @return The input data frame with the gender column:
 #'
 #'          gender - assigned gender (F/M/U)
 #' @examples

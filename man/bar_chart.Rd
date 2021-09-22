@@ -2,20 +2,22 @@
 % Please edit documentation in R/bar_chart.R
 \name{bar_chart}
 \alias{bar_chart}
-\title{Function to plot the barchart of the total number by gender}
+\title{Function to create a bar chart of the total number by gender}
 \usage{
-bar_chart(data_df, x_title, y_title)
+bar_chart(data_df, x_label, y_label)
 }
 \arguments{
-\item{data_df, }{dataframe generated from the function total_df}
+\item{data_df, }{dataframe from \code{\link{total_gender_df}}}
 
-\item{x_title, }{title for x axis.}
+\item{x_label, }{label for x axis.}
 
-\item{y_title, }{title for y axis}
+\item{y_label, }{label for y axis.}
 }
 \value{
-a barchart as ggplot2 object.
+A bar chart as ggplot2 object showing on the y axis the
+ total number per gender and on the x axis the level previously defined in
+ \code{\link{total_gender_df}}.
 }
 \description{
-Function to plot the barchart of the total number by gender
+Function to create a bar chart of the total number by gender
 }

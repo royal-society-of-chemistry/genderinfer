@@ -1,16 +1,17 @@
-#' Function to plot the barchart of the total number by gender
+#' Function to create a bar chart of the total number by gender
 #'
 #' @name bar_chart
 #'
-#' @param data_df, dataframe generated from the function total_df
-#' @param x_title, title for x axis.
-#' @param y_title, title for y axis
-#' @returns a barchart as ggplot2 object.
-#' @importFrom ggplot2 theme_bw
+#' @param data_df, dataframe from \code{\link{total_gender_df}} 
+#' @param x_label, label for x axis.
+#' @param y_label, label for y axis.
+#' @returns A bar chart as ggplot2 object showing on the y axis the
+#'  total number per gender and on the x axis the level previously defined in
+#'  \code{\link{total_gender_df}}.
 #' @export
 
 
-bar_chart <- function(data_df, x_title, y_title) {
+bar_chart <- function(data_df, x_label, y_label) {
 
   ## define global variable to NULL
   x_values <- y_values <- gender <- total_female_male <- NULL
@@ -27,6 +28,6 @@ bar_chart <- function(data_df, x_title, y_title) {
                                   label = paste("Number of male and female:",
                                                 total_female_male, sep = " "),
                                   size = 13 / .pt), show.legend = FALSE) +
-    xlab({{x_title}}) + ylab({{y_title}}) + theme_gd()
+    xlab({{x_label}}) + ylab({{y_label}}) + theme_gd()
   plot
 }

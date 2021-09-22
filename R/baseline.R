@@ -2,8 +2,8 @@
 #'
 #' @name baseline
 #' @description \code{baseline} calculate the female baseline giving a dataframe
-#' containing the gender informations.
-#' @param data_df, dataframe containg the gender column.
+#' containing the gender information.
+#' @param data_df, dataframe containing the gender column.
 #' @param gender_col, the name of the column containing the gender information.
 #' @return The function returns a numeric vector containing the baseline values
 #' @examples

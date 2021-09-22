@@ -1,23 +1,22 @@
 #' Function to create the balloon plot for gender first name
-#' @param data_df, data frame containing `first name` and `gender` columns
-#' @param first_name, first name column's name
-#' @param gender, gender possible values are F for female, M for male and U 
+#' @param data_df, data frame containing `first name` and `gender` columns from 
+#' \code{\link{assign_gender}}
+#' @param gender_var, gender possible values are F for female, M for male and U 
 #' for unknown
-#' @param cutoff, numerical value indicating where to cut the count data
+#' @param cutoff, numerical value indicating where to cut the counting data
 #' @return The output is a gg object from ggplot2 which shows the most frequent
 #' names as a balloon plot.
 #' @examples
 #' gender <- assign_gender(authors, "first_name")
-#' bp <- balloon_plot(gender, "first_name", "gender", cut = 5)
+#' bp <- balloon_plot(gender, "M", cutoff = 5)
 #' @importFrom stats reorder
 #' @importFrom ggplot2 scale_alpha_continuous
 #' @importFrom ggplot2 scale_size_area
 #' @importFrom ggplot2 unit
 #' @export
 
-balloon_plot <- function(data_df, first_name, gender,
-                         cutoff) {
-  n <- gender <- NULL
+balloon_plot <- function(data_df, gender_var, cutoff) {
+  n <- gender <- first_name <- NULL
   df <- subset(data_df, length(data_df$first_name) > 1 & gender == gender)
   df <- as.data.frame(table(df[, c("first_name")]))
   df <- df[order(df$Freq, decreasing = TRUE), ]
@@ -29,13 +28,12 @@ balloon_plot <- function(data_df, first_name, gender,
   df <- subset(df, n >= cutoff)
   ## Create balloon plot
   gg_m <- ggplot(df, aes(x = factor(col), y = reorder(factor(first_name), n),
-                         size = n, colour = n,
-                         alpha = n)) +
+                         size = n, colour = n, alpha = n)) +
     geom_point() +
     geom_text(aes(label = n, x = col + 0.1), alpha = 1.0, size = 3) +
     scale_alpha_continuous(range = c(0.3, 0.7)) +
     scale_size_area(max_size = 6) +
-    theme_bw() +
+    theme_gd() +
     theme(axis.line = element_blank(),
           axis.title = element_blank(),
           panel.border = element_blank(),

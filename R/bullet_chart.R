@@ -4,11 +4,12 @@
 #' @name bullet_chart
 #' @param data_df, dataframe in output from \code{\link{percent_df}}
 #' @param baseline_female, numeric vector containing the baseline for each level
-#' @param x_title, label for x axis
-#' @param y_title, label for y axis
+#' @param x_label, label for x axis
+#' @param y_label, label for y axis
 #' @param baseline_label, label used to define the baseline name.
-#' @return This function create a bar chart containing the percentage of
-#' submission with the corresponding baseline for a years period.
+#' @return This function create a bullet chart containing the percentage of
+#' submission with the corresponding baseline for the level defined in
+#' \code{\link{percent_df}}.
 #' @importFrom ggplot2 xlab
 #' @importFrom ggplot2 ggplot
 #' @importFrom ggplot2 geom_bar
@@ -30,7 +31,7 @@
 #' @export
 
 
-bullet_chart <- function(data_df, baseline_female, x_title, y_title,
+bullet_chart <- function(data_df, baseline_female, x_label, y_label,
                                     baseline_label) {
   ## define global variable
   x_values <- y_values <- gender <- pos <- lower_CI <- upper_CI <- level <- NULL
@@ -60,6 +61,6 @@ bullet_chart <- function(data_df, baseline_female, x_title, y_title,
               size = 15 / .pt, vjust = -0.2) +
     geom_errorbar(data = {{data_df}}, aes(x = x_values, ymin = lower_CI,
                                           ymax = upper_CI), width = 0.3) +
-    theme_gd() + xlab({{x_title}}) + ylab({{y_title}}) + coord_flip()
+    theme_gd() + xlab({{x_label}}) + ylab({{y_label}}) + coord_flip()
   plot
 }
