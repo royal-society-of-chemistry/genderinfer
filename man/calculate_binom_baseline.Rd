@@ -11,13 +11,14 @@ calculate_binom_baseline(data_df, baseline_female, confidence_level = 0.95)
 containing the columns: female, male, which contain the integer counts of 
 males and females respectively and must be a numeric vector greater than 0.}
 
-\item{baseline_female, }{the baseline used for the calculation.}
+\item{baseline_female, }{female baseline in percentage from \code{\link{baseline}}.}
 
 \item{confidence_level, }{confidence level to use for significance calculation,
 default is 0.95}
 }
 \value{
-dataframe with additional columns than the input one:
+This function returns a dataframe with additional columns than the 
+input one:
 
 lower_CI = lower confidence level of confidence interval expressed as a 
 percentage

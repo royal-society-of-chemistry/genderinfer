@@ -1,10 +1,10 @@
 #' Create a stacked bar chart with significance bars to compare with the
-#' baseline for gender analysis
+#' female baseline for gender analysis.
 #' @name stacked_bar_chart
-#' @param data_df, is the output dataframe from the function percent_df
-#' @param baseline_female_percentage, female baseline in percentage
-#' @param x_title, label for x axis
-#' @param y_title, label for y axis
+#' @param data_df, is the output dataframe from \code{\link{percent_df}}
+#' @param baseline_female, female baseline in percentage from \code{\link{baseline}}
+#' @param x_label, label for x axis
+#' @param y_label, label for y axis
 #' @param baseline_label, label used to define the baseline name.
 #' @return This function create a bar chart containing the percentage of
 #' submission with the corresponding baseline.
@@ -16,8 +16,8 @@
 #' @importFrom ggplot2 scale_color_manual
 #' @export
 
-stacked_bar_chart <- function(data_df, baseline_female_percentage, x_title,
-                              y_title, baseline_label) {
+stacked_bar_chart <- function(data_df, baseline_female, x_label,
+                              y_label, baseline_label) {
 
   labels <- x_values <- y_values <- gender <- pos <- NULL
   lower_CI <- upper_CI <- NULL
@@ -38,13 +38,13 @@ stacked_bar_chart <- function(data_df, baseline_female_percentage, x_title,
               size = 18 / .pt, vjust = 0, nudge_y = 0.5) +
     theme(legend.position = "bottom", legend.direction = "horizontal") +
     geom_line() +
-    geom_hline(aes(yintercept = {{baseline_female_percentage}},
+    geom_hline(aes(yintercept = {{baseline_female}},
                    color = paste({{baseline_label}},
-                                 {{baseline_female_percentage}}, "%")))  +
+                                 {{baseline_female}}, "%")))  +
     scale_color_manual(values = alpha("#D7191C", .7), name = "") +
     geom_errorbar(data = {{data_df}}, aes(x = x_values,
                                           ymin = lower_CI,
                                           ymax = upper_CI), width = 0.3) +
-    xlab({{x_title}}) + ylab({{y_title}}) + theme_gd()
+    xlab({{x_label}}) + ylab({{y_label}}) + theme_gd()
   plot
 }

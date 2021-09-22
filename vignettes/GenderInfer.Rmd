@@ -168,8 +168,8 @@ This chart shows information about the baseline and the percentage of males and 
 ## Add to `stacked_bar_chart` coord_flip() from ggplot2 to invert the xy axis.
 # percent_df(data_df = df_gender)
 percent_data <- percent_df(data_df = df_gender) 
-stacked_bar_chart(percent_data, baseline_female_percentage = baseline_female,
-                    x_title = "Year", y_title = "Percentage of authors",
+stacked_bar_chart(percent_data, baseline_female = baseline_female,
+                    x_label = "Year", y_label = "Percentage of authors",
                     baseline_label = "Female baseline 2016-2019:") +
   coord_flip() 
  

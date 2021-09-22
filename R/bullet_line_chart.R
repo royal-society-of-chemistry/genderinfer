@@ -12,8 +12,10 @@
 #' @param line_chart_scaling, factor of conversion for second y-axis
 #' @param y_line_chart_label, label the y-axis of the line chart
 #' @param line_label, label used to define the line chart.
-#' @return The function create a bullet chart containing the percentage of male and
-#' female and the total number of submissions on the top chart.
+#' @return The function create a bullet chart containing the percentage of male 
+#' and female with the corresponding baseline for the level defined in
+#' \code{\link{percent_df}}. The total number of submissions are displayed on 
+#' the top of the bullet chart.
 #' @importFrom ggplot2 geom_point
 #' @importFrom ggplot2 geom_line
 #' @importFrom ggplot2 scale_y_continuous

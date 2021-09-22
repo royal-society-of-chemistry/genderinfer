@@ -3,12 +3,12 @@
 #'
 #' @name percent_df
 #' @param data_df, dataframe containing level, lower_CI, upper_CI,
-#' significance and female and male percentages
-#' @returns dataframe with the columns x_values, y_values, gender, labels
+#' significance and female and male percentages from 
+#' \code{\link{calculate_binom_baseline}}
+#' @returns The output dataframe contains the columns x_values, y_values,
+#' gender, labels
 #' @examples
-#' \dontrun{
-#' percent_df <-percent_df(data_df)
-#' }
+
 #' @export
 
 percent_df <- function(data_df) {

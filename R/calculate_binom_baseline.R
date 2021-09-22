@@ -6,10 +6,11 @@
 #'@param data_df, dataframe in output from \code{\link{reshape_for_binomials}}
 #' containing the columns: female, male, which contain the integer counts of 
 #' males and females respectively and must be a numeric vector greater than 0.
-#'@param baseline_female, the baseline used for the calculation.
+#'@param baseline_female, female baseline in percentage from \code{\link{baseline}}.
 #'@param confidence_level, confidence level to use for significance calculation,
 #' default is 0.95
-#'@returns dataframe with additional columns than the input one:
+#'@returns This function returns a dataframe with additional columns than the 
+#'input one:
 #'
 #' lower_CI = lower confidence level of confidence interval expressed as a 
 #' percentage

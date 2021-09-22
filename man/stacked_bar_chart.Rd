@@ -3,24 +3,18 @@
 \name{stacked_bar_chart}
 \alias{stacked_bar_chart}
 \title{Create a stacked bar chart with significance bars to compare with the
-baseline for gender analysis}
+female baseline for gender analysis.}
 \usage{
-stacked_bar_chart(
-  data_df,
-  baseline_female_percentage,
-  x_title,
-  y_title,
-  baseline_label
-)
+stacked_bar_chart(data_df, baseline_female, x_label, y_label, baseline_label)
 }
 \arguments{
-\item{data_df, }{is the output dataframe from the function percent_df}
+\item{data_df, }{is the output dataframe from \code{\link{percent_df}}}
 
-\item{baseline_female_percentage, }{female baseline in percentage}
+\item{baseline_female, }{female baseline in percentage from \code{\link{baseline}}}
 
-\item{x_title, }{label for x axis}
+\item{x_label, }{label for x axis}
 
-\item{y_title, }{label for y axis}
+\item{y_label, }{label for y axis}
 
 \item{baseline_label, }{label used to define the baseline name.}
 }
@@ -30,5 +24,5 @@ submission with the corresponding baseline.
 }
 \description{
 Create a stacked bar chart with significance bars to compare with the
-baseline for gender analysis
+female baseline for gender analysis.
 }

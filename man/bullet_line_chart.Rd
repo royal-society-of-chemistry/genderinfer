@@ -37,8 +37,10 @@ bullet_line_chart(
 \item{line_label, }{label used to define the line chart.}
 }
 \value{
-The function create a bullet chart containing the percentage of male and
-female and the total number of submissions on the top chart.
+The function create a bullet chart containing the percentage of male 
+and female with the corresponding baseline for the level defined in
+\code{\link{percent_df}}. The total number of submissions are displayed on 
+the top of the bullet chart.
 }
 \description{
 Function to create a bullet chart with a line chart in the same graphical 
