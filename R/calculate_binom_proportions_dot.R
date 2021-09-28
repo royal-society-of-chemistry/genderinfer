@@ -2,17 +2,17 @@
 #'
 #' @description \code{calculate_binom_proportions} calls Exact Binomial Test
 #'  function \code{binom.test}
-#' @param noFirst, number of successes, numeric vector
-#' @param noSecond, number of failures, numeric vector
-#' @param expectedProportion, background population
-#' @param noTests, for multinomial test default value 1
-#' @param confidenceLevel, confidence level for the returned confidence interval
+#' @param no_First, number of successes, numeric vector
+#' @param no_Second, number of failures, numeric vector
+#' @param expected_Proportion, background population
+#' @param no_Tests, for multinomial test default value 1
+#' @param confidence_level, confidence level for the returned confidence interval
 #'  default is 0.95 using account method mechanism.
 #' @return The output will be a vector of the form:
 #'
-#'   noFirst = first input parameter,
+#'   no_First = first input parameter,
 #'
-#'   noSecond = second input parameter
+#'   no_Second = second input parameter
 #'
 #'   AdjustedPValue = binom test P-value corrected for number of tests
 #'
@@ -20,7 +20,7 @@
 #'
 #'   ActualProportion = binom test estimated probability of success
 #'
-#'   ExpectedProportion = binom test probability of success under the null
+#'   expected_Proportion = binom test probability of success under the null
 #'
 #'   LowerCI = binom test lower confidence level of returned confidence interval
 #'
@@ -39,16 +39,18 @@
 #' @importFrom stats binom.test
 #' @noRd
 
-.calculate_binom_proportions <- function(noFirst, noSecond, expectedProportion,
-                                        noTests=1, confidenceLevel=0.95) {
+.calculate_binom_proportions <- function(no_First, no_Second, 
+                                         expected_Proportion,
+                                         no_Tests = 1, 
+                                         confidence_level = 0.95) {
   rr <- vector("numeric", 8)
-  result_binom <- binom.test(x = noFirst, n = noSecond + noFirst,
-                             p = expectedProportion,
-                             conf.level = confidenceLevel)
-  rr[1] <- noFirst
-  rr[2] <- noSecond
+  result_binom <- binom.test(x = no_First, n = no_Second + no_First,
+                             p = expected_Proportion,
+                             conf.level = confidence_level)
+  rr[1] <- no_First
+  rr[2] <- no_Second
   #simple aka conservative multitest correction
-  rr[3] <- result_binom$p.value * noTests
+  rr[3] <- result_binom$p.value * no_Tests
   if (rr[3] > 1) {
       rr[3] <- 1
       }
@@ -56,13 +58,14 @@
   rr[5] <- result_binom$estimate
   rr[6] <- result_binom$null.value
   #we use AC as we are assuming this is high number count data
-  result_confidence <- binom.confint(noFirst, noSecond + noFirst,
+  result_confidence <- binom.confint(no_First, no_Second + no_First,
                                      methods = "agresti-coull",
-                                     conf.level = confidenceLevel)
+                                     conf.level = confidence_level)
   rr[7] <- result_confidence$lower
   rr[8] <- result_confidence$upper
 
-  names(rr) <- c("NoFirst", "NoSecond", "AdjustedPValue", "PValue",
-               "ActualProportion", "ExpectedProportion", "LowerCI", "UpperCI")
+  names(rr) <- c("no_First", "no_Second", "Adjusted_PValue", "P_Value",
+               "Actual_Proportion", "expected_Proportion", "Lower_CI",
+               "Upper_CI")
   rr
 }

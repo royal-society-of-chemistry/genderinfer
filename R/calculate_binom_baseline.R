@@ -43,21 +43,28 @@ calculate_binom_baseline <- function(data_df, baseline_female,
   outdf$baseline <- baseline_female
   outdf
   
-  rr_row <- sapply(seq_len(length(outdf$female)), function(x) {
-    .calculate_binom_proportions(noFirst = as.numeric(outdf$female[x]),
-                                 noSecond = as.numeric(outdf$male[x]),
-                                 expectedProportion = as.numeric(outdf$baseline[x]) / 100)
+  rr_row <- sapply(seq_len(length(outdf$female)), 
+                   function(x) {
+                     .calculate_binom_proportions(
+                       no_First = as.numeric(outdf$female[x]),
+                       no_Second = as.numeric(outdf$male[x]),
+                       expected_Proportion = as.numeric(outdf$baseline[x]) / 100
+                       )
   })
   rr_row
 
   for (x in seq_len(length(outdf$female))) {
-    outdf[x, "lower_CI"] <- round(100 * as.numeric(rr_row["LowerCI", x]), 2)
-    outdf[x, "lower_CI_count"] <- round(outdf$female[x] * rr_row["LowerCI", x] / rr_row["ActualProportion", x], 2)
-    outdf[x, "upper_CI"] <- round(100 * as.numeric(rr_row["UpperCI", x]), 2)
-    outdf[x, "upper_CI_count"] <- round(outdf$female[x] * rr_row["UpperCI", x] / rr_row["ActualProportion", x], 2)
-    outdf[x, "adjusted_p_value"] <- rr_row["AdjustedPValue", x][[1]]
-    outdf[x, "significance"] <- ifelse(rr_row["AdjustedPValue", x][[1]] < (1 - 0.95),
-                                       "Significant", "")
+    outdf[x, "lower_CI"] <- round(100 * as.numeric(rr_row["Lower_CI", x]), 2)
+    outdf[x, "lower_CI_count"] <- round(
+      outdf$female[x] * rr_row["Lower_CI", x] / rr_row["Actual_Proportion", x],
+      2)
+    outdf[x, "upper_CI"] <- round(100 * as.numeric(rr_row["Upper_CI", x]), 2)
+    outdf[x, "upper_CI_count"] <- round(
+      outdf$female[x] * rr_row["Upper_CI", x] / rr_row["Actual_Proportion", x],
+      2)
+    outdf[x, "adjusted_p_value"] <- rr_row["Adjusted_PValue", x][[1]]
+    outdf[x, "significance"] <- ifelse(
+      rr_row["Adjusted_PValue", x][[1]] < (1 - 0.95), "Significant", "")
     outdf
   }
   return(outdf)
