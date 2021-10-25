@@ -20,8 +20,10 @@ assign_gender <- function(data_df, first_name_col) {
   ## character, this is why we use here the function iconv.
   UKUS_Gender <- Name <- NULL
   df <- data_df
-  df$Name <- tolower(iconv(df[, first_name_col], from = "UTF-8",
-                           to = "ASCII//TRANSLIT"))
+  df$Name <- sapply(1:nrow(df), function(x) {
+    tolower(iconv(df[x, first_name_col], from = "UTF-8",
+                  to = "ASCII//TRANSLIT"))
+  })
   df <- merge(df, gender_names, by.x = "Name", by.y = "Name", all.x = TRUE)
   df$UKUS_Gender[is.na(df$UKUS_Gender)] <- "U"
   df$gender <- ifelse(df$UKUS_Gender == "Male", "M",
