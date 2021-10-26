@@ -34,6 +34,7 @@ reshape_for_binomials <- function(data_df, gender_col, level) {
     wide <- reshape(data_df, timevar = gender_col, idvar = "level",
                     direction = "wide")
   }else if (ncol(data_df) > 2) {
+    data_df$level <- NA ## initialise variable.
     data_df$level <- unique(data_df[, level])
     data_df[, level] <- NULL
     names(data_df)
