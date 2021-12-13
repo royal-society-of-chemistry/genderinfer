@@ -15,7 +15,7 @@ head(authors)
 
 ## ---- warning=FALSE, message=FALSE--------------------------------------------
 authors_df <- assign_gender(data_df = authors, first_name_col = "first_name")
-  
+
 head(authors_df)
 
 ## ---- warning=FALSE, message=FALSE--------------------------------------------
@@ -28,7 +28,7 @@ authors_df %>% count(gender, country_code)
 
 ## ----  warning=FALSE, message=FALSE-------------------------------------------
 ## calculates baseline for the year range 2016-2019
-baseline_female <- baseline(data_df = authors_df %>% 
+baseline_female <- baseline(data_df = authors_df %>%
                               filter(publication_years %in% seq(2016, 2019)),
                             gender_col = "gender")
 baseline_female
@@ -37,7 +37,7 @@ baseline_female
 ## -----------------------------------------------------------------------------
 ## Create a data frame that containing only the data from 2020 and
 ## the count of the variable gender.
-female_count_2020 <- authors_df %>% 
+female_count_2020 <- authors_df %>%
   filter(publication_years == 2020) %>%
   count(gender)
 
@@ -62,20 +62,20 @@ df_gender
 ## bar chart of showing the number of male, female and unknown gender with `gender_bar_chart`
 gender_total <- total_gender_df(data_df = df_gender, level = "level")
 
-bar_chart(data_df = gender_total, x_label = "Year", 
+bar_chart(data_df = gender_total, x_label = "Year",
                  y_label = "Total number")
 
 
 ## ---- fig.width=6-------------------------------------------------------------
 ## reshape the dataframe using the function `percent_df`.
 ## Add to `stacked_bar_chart` coord_flip() from ggplot2 to invert the xy axis.
-# percent_df(data_df = df_gender)
-percent_data <- percent_df(data_df = df_gender) 
+percent_df(data_df = df_gender)
+percent_data <- percent_df(data_df = df_gender)
 stacked_bar_chart(percent_data, baseline_female = baseline_female,
                     x_label = "Year", y_label = "Percentage of authors",
                     baseline_label = "Female baseline 2016-2019:") +
-  coord_flip() 
- 
+  coord_flip()
+
 
 
 ## -----------------------------------------------------------------------------
@@ -117,7 +117,7 @@ bullet_chart
 ## calculate binomials for US and UK
 
 UK_df <- reshape_for_binomials(data_df = authors_df %>%
-                                     filter(country_code == "UK") %>% 
+                                     filter(country_code == "UK") %>%
                                      count(gender, publication_years),
                                "gender", "publication_years")
 
@@ -127,7 +127,7 @@ UK_df
 ## using as country to compare France.
 baseline_fr <- sapply(seq(2016, 2020), function(x) {
   baseline(data_df = authors_df %>%
-             filter(country_code == "FR", publication_years %in% x), 
+             filter(country_code == "FR", publication_years %in% x),
            gender_col = "gender")
 })
 baseline_fr
