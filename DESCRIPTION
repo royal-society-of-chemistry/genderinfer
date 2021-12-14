@@ -3,12 +3,12 @@ Type: Package
 Title: This is a Collection of Functions to Analyse Gender Differences 
 Version: 0.1.1
 Authors@R: c( 
-    person("Rita", "Giordano", email = "giordanor@rsc.org", role =  c("aut", "cre")), 
-    person("Aileen", "Day", role = "aut"), 
+    person("Rita", "Giordano", email = "rgiordano@gmx.com", role =  c("aut", "cre")), 
+    person("Aileen", "Day", email = "daya@rsc.org", role = "aut"), 
     person("John", "Boyle", role = "aut"), 
     person("Colin", "Batchelor", role = "ctb"),
     person("Royal Society of Chemistry", role = "cph"))
-Maintainer: Rita Giordano <giordanor@rsc.org>
+Maintainer: Aileen Day <daya@rsc.org>
 Description: Implementation of functions, which combines binomial calculation 
     and data visualisation, to analyse the differences in publishing authorship
     by gender described in Day et al. (2020) <doi:10.1039/C9SC04090K>.
